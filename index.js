@@ -1,3 +1,3 @@
-import * as Mylcass from './src/Mylcass';
+import * as Mylcass from './src/Mylcass.ts';
 
 export = Mylcass;

@@ -1,4 +1,6 @@
 import MyClass from './Mylcass.ts';
+
+
 new MyClass() 
 // import './style.css'
 // import typescriptLogo from './typescript.svg'
