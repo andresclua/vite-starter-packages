@@ -1,3 +1,4 @@
+import './style.css'
 import MyClass from './Mylcass.ts';
 
 
