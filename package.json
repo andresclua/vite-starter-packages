@@ -1,7 +1,7 @@
 {
   "name": "@andresclua/test-package",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "sass": "^1.69.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }

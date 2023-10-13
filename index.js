@@ -1,3 +1,2 @@
-import * as Mylcass from './src/Mylcass.ts';
 
-export = Mylcass;
+module.exports = require('./src/MyClass.js');
