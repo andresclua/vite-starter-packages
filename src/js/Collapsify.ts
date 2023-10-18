@@ -1,8 +1,7 @@
 
-import JSUTIL from '@andresclua/jsutil';
-import { breakpoints} from '@teamthunderfoot/breakpoints';
-console.log(breakpoints)
-console.log('version 0.0.84', JSUTIL)
+import  JSUTIL from '@andresclua/jsutil';
+console.log('working from remote')
+
 /**
  * Options Interface
  * Define customizable settings for the component:
@@ -26,8 +25,6 @@ export interface Options {
   toggleButtonAttr: string;
   toggleContentAttr: string;
   activeClass: string;
-  activeClassforButton: string;
-  activeClassforContent: string;
   isAnimation: boolean;
   closeOthers: boolean;
   animationSpeed: number;
@@ -74,9 +71,7 @@ export interface Options {
         nameSpace: "collapsify",
         toggleButtonAttr: `data-${nameSpace}-control`,
         toggleContentAttr: `data-${nameSpace}-content`,
-        activeClass: "is-active",
-        activeClassforButton: 'test',
-        activeClassforContent: 'test',
+        activeClass: "--is-active",
         isAnimation: true,
         closeOthers: true,
         animationSpeed: 400,
