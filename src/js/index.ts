@@ -2,8 +2,9 @@ import './../scss/index.scss';
 import Collapsify from './Collapsify.ts';
 
 // @ts-ignore
+// also if argument is not used it should be passed a _
 var primero = new Collapsify({
-    onSlideStart: (isOpen, ) => {
+    onSlideStart: (isOpen:boolean, _contentID ) => {
         console.log(isOpen)
         console.log('onSlideStart')
     },
