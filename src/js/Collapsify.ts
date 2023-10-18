@@ -1,6 +1,6 @@
 
 import  JSUTIL from '@andresclua/jsutil';
-console.log('working from remote')
+
 
 /**
  * Options Interface
@@ -199,14 +199,34 @@ export interface Options {
   
       //Content : Set getHeight, add activeClass
       const clientHeight = this.getTargetHeight(toggleBody);
-      toggleBody.style.visibility = "visible";
-      toggleBody.classList.add(this.options.activeClass);
+      this.jsui.addStyle(toggleBody,'visibility','visible');
+
+      let contentHasClass = '';
+      if(!toggleBody.classList[0]){
+        contentHasClass = this.options.activeClass
+      }else{
+        contentHasClass = toggleBody.classList[0];
+        contentHasClass+= this.options.activeClass;
+      }
+      this.jsui.addClass(toggleBody,contentHasClass);
   
       //Button : Add activeClass
       const toggleButton = document.querySelectorAll(`[${this.options.toggleButtonAttr}='${id}']`);
       if (toggleButton.length > 0) {
         [].slice.call(toggleButton).forEach((button: HTMLElement) => {
-          button.classList.add(this.options.activeClass);
+          
+         let buttonHasClass = '';
+         if(!button.classList[0]){
+          buttonHasClass = this.options.activeClass
+         }else{
+          buttonHasClass = button.classList[0];
+          buttonHasClass+= this.options.activeClass
+         }
+         
+       
+          this.jsui.addClass(button,buttonHasClass);
+          // button.classList.add(this.options.activeClass);
+
           if (button.hasAttribute("aria-expanded")) {
             button.setAttribute("aria-expanded", "true");
           }
@@ -215,20 +235,32 @@ export interface Options {
   
       if (isAnimation) {
         //Slide Animation
-        toggleBody.style.overflow = "hidden";
-        toggleBody.style.transition = `${this.options.animationSpeed}ms ${this.options.cssEasing}`;
-        toggleBody.style.maxHeight = (clientHeight || "1000") + "px";
+        // toggleBody.style.overflow = "hidden";
+        // toggleBody.style.transition = `${this.options.animationSpeed}ms ${this.options.cssEasing}`;
+        // toggleBody.style.maxHeight = (clientHeight || "1000") + "px";
+
+        this.jsui.addStyle(toggleBody,'overflow','hidden');
+        this.jsui.addStyle(toggleBody,'transition',`${this.options.animationSpeed}ms ${this.options.cssEasing}`);
+        this.jsui.addStyle(toggleBody, 'max-height', (clientHeight || "1000") + "px");
+
+
         setTimeout(() => {
           if (isRunCallback !== false) this.options.onSlideEnd(true, id);
-          toggleBody.style.maxHeight = "none";
-          toggleBody.style.transition = "";
-          toggleBody.style.overflow = "";
+          // toggleBody.style.maxHeight = "none";
+          // toggleBody.style.transition = "";
+          // toggleBody.style.overflow = "";
+          this.jsui.addStyle(toggleBody,'maxHeight','none');
+          this.jsui.addStyle(toggleBody,'transition','');
+          this.jsui.addStyle(toggleBody,'overflow','');
+
           this.itemsState[id].isAnimating = false;
         }, this.options.animationSpeed);
       } else {
         //No Animation
-        toggleBody.style.maxHeight = "none";
-        toggleBody.style.overflow = "";
+        // toggleBody.style.maxHeight = "none";
+        // toggleBody.style.overflow = "";
+        this.jsui.addStyle(toggleBody, 'max-height', 'none');
+        this.jsui.addStyle(toggleBody, 'overflow', '');
         this.itemsState[id].isAnimating = false;
       }
       this.itemsState[id].isOpen = true;
@@ -250,9 +282,14 @@ export interface Options {
   
       //Content : Set getHeight, remove activeClass
       const toggleBody = document.querySelector(`[${this.options.toggleContentAttr}='${id}']`) as HTMLElement;
-      toggleBody.style.overflow = "hidden";
+      // toggleBody.style.overflow = "hidden";
+      this.jsui.addStyle(toggleBody, 'overflow', 'hidden');
+
+
       toggleBody.classList.remove(this.options.activeClass);
-      toggleBody.style.maxHeight = toggleBody.clientHeight + "px";
+      // toggleBody.style.maxHeight = toggleBody.clientHeight + "px";
+      this.jsui.addStyle(toggleBody, 'max-height', toggleBody.clientHeight + "px");
+
   
       setTimeout(() => {
         toggleBody.style.maxHeight = "0px";
@@ -320,51 +357,51 @@ export interface Options {
    * Destroy accordion
    * @param id - accordion ID
    */
-  destroy(id: string, isRunCallback = true, isAnimation = true) {
-    if (!id) return;
-    if (!Object.prototype.hasOwnProperty.call(this.itemsState, id)) {
-      return;
-    }
-    this.itemsState[id].isAnimating = true;
-    if (isRunCallback !== false) this.options.onSlideStart(false, id);
+    // destroy(id: string, isRunCallback = true, isAnimation = true) {
+    //   if (!id) return;
+    //   if (!Object.prototype.hasOwnProperty.call(this.itemsState, id)) {
+    //     return;
+    //   }
+    //   this.itemsState[id].isAnimating = true;
+    //   if (isRunCallback !== false) this.options.onSlideStart(false, id);
 
-    // Content: Remove maxHeight and activeClass
-    const toggleBody = document.querySelector(`[${this.options.toggleContentAttr}='${id}']`) as HTMLElement;
-    toggleBody.style.overflow = "hidden";
-    toggleBody.classList.remove(this.options.activeClass);
-    toggleBody.style.maxHeight = "0px";
+    //   // Content: Remove maxHeight and activeClass
+    //   const toggleBody = document.querySelector(`[${this.options.toggleContentAttr}='${id}']`) as HTMLElement;
+    //   toggleBody.style.overflow = "hidden";
+    //   toggleBody.classList.remove(this.options.activeClass);
+    //   toggleBody.style.maxHeight = "0px";
 
-    // Buttons: Remove activeClass
-    const toggleButton = document.querySelectorAll(`[${this.options.toggleButtonAttr}='${id}']`);
-    if (toggleButton.length > 0) {
-      [].slice.call(toggleButton).forEach((button: HTMLElement) => {
-        button.classList.remove(this.options.activeClass);
-        if (button.hasAttribute("aria-expanded")) {
-          button.setAttribute("aria-expanded", "false");
-        }
-      });
-    }
+    //   // Buttons: Remove activeClass
+    //   const toggleButton = document.querySelectorAll(`[${this.options.toggleButtonAttr}='${id}']`);
+    //   if (toggleButton.length > 0) {
+    //     [].slice.call(toggleButton).forEach((button: HTMLElement) => {
+    //       button.classList.remove(this.options.activeClass);
+    //       if (button.hasAttribute("aria-expanded")) {
+    //         button.setAttribute("aria-expanded", "false");
+    //       }
+    //     });
+    //   }
 
-    if (isAnimation) {
-      // Slide Animation
-      toggleBody.style.transition = `${this.options.animationSpeed}ms ${this.options.cssEasing}`;
-      setTimeout(() => {
-        if (isRunCallback !== false) this.options.onSlideEnd(false, id);
-        toggleBody.style.transition = "";
-        this.itemsState[id].isAnimating = false;
-        toggleBody.style.visibility = "hidden";
-      }, this.options.animationSpeed);
-    } else {
-      // No Animation
-      this.options.onSlideEnd(false, id);
-      this.itemsState[id].isAnimating = false;
-      toggleBody.style.visibility = "hidden";
-    }
-    if (Object.prototype.hasOwnProperty.call(this.itemsState, id)) {
-      this.itemsState[id].isOpen = false;
-    }
-    if (toggleBody.hasAttribute("aria-hidden")) {
-      toggleBody.setAttribute("aria-hidden", "true");
-    }
-  }
+    //   if (isAnimation) {
+    //     // Slide Animation
+    //     toggleBody.style.transition = `${this.options.animationSpeed}ms ${this.options.cssEasing}`;
+    //     setTimeout(() => {
+    //       if (isRunCallback !== false) this.options.onSlideEnd(false, id);
+    //       toggleBody.style.transition = "";
+    //       this.itemsState[id].isAnimating = false;
+    //       toggleBody.style.visibility = "hidden";
+    //     }, this.options.animationSpeed);
+    //   } else {
+    //     // No Animation
+    //     this.options.onSlideEnd(false, id);
+    //     this.itemsState[id].isAnimating = false;
+    //     toggleBody.style.visibility = "hidden";
+    //   }
+    //   if (Object.prototype.hasOwnProperty.call(this.itemsState, id)) {
+    //     this.itemsState[id].isOpen = false;
+    //   }
+    //   if (toggleBody.hasAttribute("aria-hidden")) {
+    //     toggleBody.setAttribute("aria-hidden", "true");
+    //   }
+    // }
   }

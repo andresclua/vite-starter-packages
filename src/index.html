@@ -11,31 +11,165 @@
     <div class="f--container">
       <div class="f--row">
         <div class="f--col-12">
-          <div class="f--font-a">Collapse</div>
+          <div class="f--font-a f--sp-a f--mt-3">Collapsify <span class="f--font-c">By Terra</span></div>
         </div>
       </div>
     </div>
+
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-6">
+          <h3 class="f--font-c f--sp-d">Simple Example</h3>
+          <button class="c--btn-a" type="button" data-collapsify-control="simpleContent">Show/Hide Content</button>
+          <div class="c--content-a" data-collapsify-content="simpleContent">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea deleniti nisi maxime sequi corporis labore repellat impedit, id vel, esse ad, culpa praesentium? Nobis quam fugiat natus, at nisi cumque.</p>
+          </div>
+        </div>
+        <div class="f--col-6">
+          <pre class="c--code-a">
+            <label class="c--code-a__label">JS</label>
+              <code class="c--code-a__content">
+  var SimpleExample = new Collapsify()
+              </code>
+          </pre>
+          <div class="c--note-a">
+            <p>
+              Add data attribute, button/content element.<br/>
+              Control Button:  data-{namespase}-control="{ID}" * multiple elements
+              Collapsible element:  data-{namespase}-content="{ID}" * only one element
+          
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="f--container">
       <div class="f--row">
         <div class="f--col-12">
+          <hr>
+        </div>
+      </div>
+    </div>
+
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-6">
+          <h3 class="f--font-c f--sp-d">Same look and feel but different triggers</h3>
+          <button class="c--btn-a" type="button" data-different-control="simpleContent2">Show/Hide Content</button>
+          <div class="c--content-a" data-different-content="simpleContent2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea deleniti nisi maxime sequi corporis labore repellat impedit, id vel, esse ad, culpa praesentium? Nobis quam fugiat natus, at nisi cumque.</p>
+          </div>
+        </div>
+        <div class="f--col-6">
+          <pre class="c--code-a">
+            <label class="c--code-a__label">JS</label>
+              <code class="c--code-a__content">
+  var different = new Collapsify({
+      nameSpace:'different',
+  })
+              </code>
+          </pre>
+          <div class="c--note-a">
+            <p>
+              Add data attribute, button/content element.<br/>
+              Control Button:  data-{different}-control="{ID}" * multiple elements
+              Collapsible element:  data-{different}-content="{ID}" * only one element
+          
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-12">
+          <hr>
+        </div>
+      </div>
+    </div>
+
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-6">
+          <h3 class="f--font-c f--sp-d">Nested</h3>
+         
+          <button type="button" class="c--btn-a" data-nested-control="content01" aria-expanded="true" aria-controls="nestedCotent01">
+            Content 01
+          </button>
+          <div id="nestedCotent01" data-nested-content="content01" aria-hidden="true" style="overflow: hidden; max-height: 0px; visibility: hidden;">
+            
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+          </div>
+          <button type="button" class="c--btn-a u--display-block" data-nested-control="content02" aria-expanded="false" aria-controls="nestedCotent02">
+            Content 02
+          </button>
+          <div id="nestedCotent02" data-nested-content="content02" aria-hidden="true" >
+          
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.<br>
+                Utenim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis auteirure<br>
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                occaecatcupidatat<br>
+                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
+              </p>
+              
+      
+          </div>
+
+        </div>
+        <div class="f--col-6">
+          <pre class="c--code-a">
+            <label class="c--code-a__label">JS</label>
+              <code class="c--code-a__content">
+  var different = new Collapsify({
+      nameSpace:'different',
+  })
+              </code>
+          </pre>
+          <div class="c--note-a">
+            <p>
+              Add data attribute, button/content element.<br/>
+              Control Button:  data-{different}-control="{ID}" * multiple elements
+              Collapsible element:  data-{different}-content="{ID}" * only one element
+          
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-6">
+
+          <h3 class="f--font-c f--sp-d">Simple Example</h3>
           
         <!-- 
             Add data attribute, button/content element.
             Control Button:  data-{namespase}-control="{ID}" * multiple elements
             Collapsible element:  data-{namespase}-content="{ID}" * only one element
         -->
-        <button class="c--btn-a" type="button" data-collapsify-control="uniqContentID">Show/Hide Content</button>
+        <button class="c--btn-a" type="button" data-collapsify-control="simpleContent">Show/Hide Content</button>
 
-        <div data-collapsify-content="uniqContentID"  data-collapsify-content-active="c--collapse-a--is-active">Toggle Content</div>
+        <div class="c--content-a" data-collapsify-content="simpleContent">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea deleniti nisi maxime sequi corporis labore repellat impedit, id vel, esse ad, culpa praesentium? Nobis quam fugiat natus, at nisi cumque.</p>
+        </div>
 
-          <hr>
+        <hr>
 
         <!-- 
             Add data attribute, button/content element.
             Control Button:  data-{namespase}-control="{ID}" * multiple elements
             Collapsible element:  data-{namespase}-content="{ID}" * only one element
         -->
-        <button type="button" data-test-control="uniqContentID1" aria-expanded="true" aria-controls="uniqContentID1">custom button</button>
+        <button class="c--btn-a c--btn-a--second" type="button" data-test-control="uniqContentID1" aria-expanded="true" aria-controls="uniqContentID1">custom button</button>
 
         <div aria-controls="uniqContentID1"  class="is-active" data-test-content="uniqContentID1" aria-expanded="false">Toggle Content asdasd</div>
         <div class="test lorem ipsum"></div>
