@@ -1,9 +1,9 @@
 import './../scss/index.scss';
 import Collapsify from './Collapsify.ts';
 
-
+// @ts-ignore
 var primero = new Collapsify({
-    onSlideStart: (isOpen, contentID) => {
+    onSlideStart: (isOpen, ) => {
         console.log(isOpen)
         console.log('onSlideStart')
     },
