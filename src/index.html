@@ -7,11 +7,49 @@
     <title>Andres Clua - Starter Vite</title>
   </head>
   <body>
-    <img src="./assets/mountain.png" width="300" alt="">
-    <p>this is a test</p>
-    <div style="background-image:url('./assets/mountain.png'); height:300px"></div>
-    <div id="app"></div>
-    <a href="/about.html">About link</a>
-    <script type="module" src="./js/index/index.ts"></script>
+  
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-12">
+          <div class="f--font-a">Collapse</div>
+        </div>
+      </div>
+    </div>
+    <div class="f--container">
+      <div class="f--row">
+        <div class="f--col-12">
+          
+        <!-- 
+            Add data attribute, button/content element.
+            Control Button:  data-{namespase}-control="{ID}" * multiple elements
+            Collapsible element:  data-{namespase}-content="{ID}" * only one element
+        -->
+        <button class="c--btn-a" type="button" data-collapsify-control="uniqContentID">Show/Hide Content</button>
+
+        <div data-collapsify-content="uniqContentID"  data-collapsify-content-active="c--collapse-a--is-active">Toggle Content</div>
+
+          <hr>
+
+        <!-- 
+            Add data attribute, button/content element.
+            Control Button:  data-{namespase}-control="{ID}" * multiple elements
+            Collapsible element:  data-{namespase}-content="{ID}" * only one element
+        -->
+        <button type="button" data-test-control="uniqContentID1" aria-expanded="true" aria-controls="uniqContentID1">custom button</button>
+
+        <div aria-controls="uniqContentID1"  class="is-active" data-test-content="uniqContentID1" aria-expanded="false">Toggle Content asdasd</div>
+        <div class="test lorem ipsum"></div>
+
+
+        <hr>
+
+
+        </div>
+      </div>
+    </div>
+
+   
+
+    <script type="module" src="./js/index.ts"></script>
   </body>
 </html>

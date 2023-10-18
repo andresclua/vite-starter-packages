@@ -13,5 +13,8 @@
     "sass": "^1.69.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "@andresclua/jsutil": "^3.0.1"
   }
 }
