@@ -1,9 +1,10 @@
-// @ts-ignore
-import JSUTIL from '@andresclua/jsutil';
 
+import JSUTIL from '@andresclua/jsutil';
+import { breakpoints} from '@teamthunderfoot/breakpoints';
+console.log(breakpoints)
+console.log('version 0.0.84', JSUTIL)
 /**
  * Options Interface
- * 
  * Define customizable settings for the component:
  * 
  * - nameSpace (string): Unique identifier to avoid conflicts.
@@ -54,8 +55,6 @@ export interface Options {
   }
 
 
-  
-
   export default class Collapsify {
     
     toggleContentEls: HTMLElement[]; // multiple elements
@@ -99,7 +98,7 @@ export interface Options {
       this.toggleContentEls = [].slice.call(document.querySelectorAll(`[${this.options.toggleContentAttr}]`));
       this.toggleButtonEls = [].slice.call(document.querySelectorAll(`[${this.options.toggleButtonAttr}]`));
       
-
+      console.log('test')
       if (this.toggleContentEls.length !== 0 || this.toggleButtonEls.length !== 0) {
         this.init()
       }

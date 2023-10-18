@@ -1,7 +1,7 @@
 {
   "name": "@andresclua/test-package",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.84",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,6 +15,13 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "@andresclua/jsutil": "^3.0.1"
-  }
+    "@andresclua/jsutil": "^3.0.11",
+    "@teamthunderfoot/breakpoints": "^0.0.83"
+  },
+  "bundledDependencies": [
+    "@andresclua/jsutil"
+  ],
+  "bundleDependencies": [
+    "@andresclua/jsutil"
+  ]
 }
