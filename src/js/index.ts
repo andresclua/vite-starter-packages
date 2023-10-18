@@ -9,6 +9,7 @@ var different = new Collapsify({
     nameSpace:'different',
 })
 
+// @ts-ignore
 const nested = new Collapsify({
     nameSpace: "nested",
     closeOthers: false
